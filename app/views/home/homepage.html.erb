@@ -1,28 +1,18 @@
 <div class="container">
 <div class="center-jumbotron">
 <%= form_for :money, url: root_path do |f| %>
-  <%= f.text_field :currency , class: "form-control"%>
+  <%= f.select :currency, @list_cur, {}, class: "btn btn-info dropdown-toggle"%>
   <%= f.submit "Search" , class: "btn btn-sm btn-secondary"%>
 <% end %>
 </div>
 </div>
-
-<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-
-<br>
-
 <div>
 <% if !$results.nil? %>
+    <%= $currency %> :
     <%= $results%>
   <% end %>
 </div>
+
+
+
+<br>
