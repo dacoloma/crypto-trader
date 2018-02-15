@@ -9,20 +9,22 @@ class Crypto
 
     page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 
-    array_cours=[]
+    #array_cours=[]
 
-    currency=page.xpath('//td[2]/a')
+    currencies=page.xpath('//td[2]/a')
     cours = page.xpath('//td[5]/a')
+
 
 
       register={}
       cours.each do |node|
-          register[currency[cours.index(node)].text]=node.text
+          register[currencies[cours.index(node)].text]=node.text
       end
-      array_cours << register
-      puts array_cours[array_cours.length-1]
-      sleep(3600)
-  
+      #array_cours << register
+      #puts array_cours[array_cours.length-1]
+      register
+
+
   end
 
 end
