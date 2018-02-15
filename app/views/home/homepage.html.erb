@@ -1,0 +1,14 @@
+<%= form_for :money, url: root_path do |f| %>
+  <%= f.text_field :currency , class: "form-control"%>
+  <%= f.submit "Search" , class: "btn btn-sm btn-secondary"%>
+<% end %>
+
+<% if !$results.nil? %>
+    <% $results.each do |result| %>
+
+      <div>
+        <%= result %>  
+      </div>
+
+    <% end %>
+  <% end %>
