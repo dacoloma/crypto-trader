@@ -22,7 +22,7 @@ class Crypto
       end
       #array_cours << register
       #puts array_cours[array_cours.length-1]
-      register[@currency]
+      register
 
 
   end

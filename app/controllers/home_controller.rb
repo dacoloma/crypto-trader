@@ -1,6 +1,6 @@
 require 'open-uri'
 class HomeController < ApplicationController
-
+  @@total = []
   def homepage
 
     page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
@@ -9,14 +9,16 @@ class HomeController < ApplicationController
     currencies.each do |currency|
       @list_cur << currency.text
     end
-    @list_cur.sort!
-
+    @list_cur
   end
 
   def cours
     $results = Crypto.new(currency_params).get_cours_cryptocurrencies
     $currency = currency_params
-    p $currency
+
+    @@total << $results
+    $total = @@total
+  
     redirect_to root_path
   end
 
